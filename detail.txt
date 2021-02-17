@@ -19,6 +19,9 @@ table list
 	attendants
 	progress
 	date amount
+	รายละเอียดกิจกรรม
+	สวัสดิการ
+	ค่าใช้จ่าย
 
 table detail
 	image
