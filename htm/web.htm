@@ -5,8 +5,8 @@
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-	<link rel="stylesheet" type="text/css" href="style-main.css">
-	<script type="text/javascript" src="script-main.js"></script>
+	<link rel="stylesheet" type="text/css" href="../css/style-main.css">
+	<script type="text/javascript" src="../js/script-main.js"></script>
 </head>
 <body>
 <style>
@@ -24,9 +24,9 @@
 	}
 </style>
 <div class="w3-content w3-display-container" style="max-width:800px">
-  <img class="mySlides" src="banner1.jpg" style="width:100%">
-  <img class="mySlides" src="banner2.jpg" style="width:100%">
-  <img class="mySlides" src="img_mountains_wide.jpg" style="width:100%">
+  <img class="mySlides" alt="Banner"src="../img/banner1.jpg" style="width:100%">
+  <img class="mySlides" alt="Banner"src="../img/banner2.jpg" style="width:100%">
+  <img class="mySlides" alt="Banner"src="../img/banner3.jpg" style="width:100%">
   <div class="w3-center w3-container w3-section w3-large w3-text-white w3-display-bottommiddle" style="width:100%">
     <div class="w3-left w3-hover-text-khaki" onclick="plusDivs(-1)">&#10094;</div>
     <div class="w3-right w3-hover-text-khaki" onclick="plusDivs(1)">&#10095;</div>
@@ -35,6 +35,11 @@
     <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(3)"></span>
   </div>
   <hr/>
+</div>
+<div>
+  <h3>หมวดหมู่กิจกรรม</h3>
+  <button onclick="showList('')">Search</button> 
+  <button onclick="showList('ชุมชนและสิ่งแวดล้อม')">Search Type</button>
 </div>
 <script>
 	var slideIndex = 1;
@@ -69,7 +74,7 @@ function showDivs(n) {
 		<tr>
 			<td style="padding-left: 15px;">
 				<div class="card">
-				  <img src="img_avatar2.jpg" alt="Avatar" style="width:100%">
+				  <img alt="Avatar"src="../img/img_avatar2.jpg" alt="Avatar" style="width:100%">
 				  <div class="card-body">
 				    <a href="" id="card-title"><b>Title</b></a>
 				    <p class="card-text">
@@ -94,7 +99,7 @@ function showDivs(n) {
 			</td>
 			<td style="padding-left: 15px;">
 				<div class="card">
-				  <img src="img_avatar2.jpg" alt="Avatar" style="width:100%">
+				  <img alt="Avatar"src="../img/img_avatar2.jpg" alt="Avatar" style="width:100%">
 				  <div class="card-body">
 				    <a href="" id="card-title"><b>Title</b></a>
 				    <p class="card-text">
@@ -119,7 +124,7 @@ function showDivs(n) {
 			</td>
 			<td style="padding-left: 15px;">
 				<div class="card">
-				  <img src="img_avatar2.jpg" alt="Avatar" style="width:100%">
+				  <img alt="Avatar"src="../img/img_avatar2.jpg" alt="Avatar" style="width:100%">
 				  <div class="card-body">
 				    <a href="" id="card-title"><b>Title</b></a>
 				    <p class="card-text">
@@ -146,7 +151,7 @@ function showDivs(n) {
 		<tr>
 			<td style="padding-left: 15px;">
 				<div class="card">
-				  <img src="img_avatar2.jpg" alt="Avatar" style="width:100%">
+				  <img alt="Avatar"src="../img/img_avatar2.jpg" alt="Avatar" style="width:100%">
 				  <div class="card-body">
 				    <a href="" id="card-title"><b>Title</b></a>
 				    <p class="card-text">
@@ -171,7 +176,7 @@ function showDivs(n) {
 			</td>
 			<td style="padding-left: 15px;">
 				<div class="card">
-				  <img src="img_avatar2.jpg" alt="Avatar" style="width:100%">
+				  <img alt="Avatar"src="../img/img_avatar2.jpg" alt="Avatar" style="width:100%">
 				  <div class="card-body">
 				    <a href="" id="card-title"><b>Title</b></a>
 				    <p class="card-text">
@@ -196,7 +201,7 @@ function showDivs(n) {
 			</td>
 			<td style="padding-left: 15px;">
 				<div class="card">
-				  <img src="img_avatar2.jpg" alt="Avatar" style="width:100%">
+				  <img alt="Avatar"src="../img/img_avatar2.jpg" alt="Avatar" style="width:100%">
 				  <div class="card-body">
 				    <a href="" id="card-title"><b>Title</b></a>
 				    <p class="card-text">

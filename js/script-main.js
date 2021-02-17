@@ -27,17 +27,15 @@ function createXMLHttpRequest() {
 } //end function createXMLHttpRequest()
 function showList(str) {
   createXMLHttpRequest();
+  var search = str;
   var url = "volunteerDB.php";
-  xmlHttp.open("GET", , true);
+  url = url+"?search="+search;
+  xmlHttp.open("GET", url, true);
   xmlHttp.onreadystatechange = () => {
     var result = "";
     if (xmlHttp.readyState == 4) {
-      let res = xmlHttp.responseText.split(',');
-      for(suggest in res){
-        result += "<option value="+res[suggest]+">" + res[suggest]+"</option>";
-      }
-      document.getElementById("namesugg").innerHTML = result;
-      //alert(result);
+      var str = xmlHttp.responseText;
+      alert(str);
     }
   };
   xmlHttp.send(null);
