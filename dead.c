@@ -31,9 +31,6 @@ int main(int argc, char** argv){
 						//MPI_Recv(&count,1,MPI_UNSIGNED_LONG_LONG,ntasks-1,101,MPI_COMM_WORLD,MPI_STATUS_IGNORE);
 						if (semiprime(num)){
 							count+=1;
-							if(limit>100000){
-								count--;
-							}
 							//printf("Rank:%d | Count: %llu | %d \n",rank,count,num);
 						}
 						//MPI_Send(&count,1,MPI_UNSIGNED_LONG_LONG,rank+1,101,MPI_COMM_WORLD);
@@ -58,6 +55,9 @@ int main(int argc, char** argv){
 	putchar('\n');
 	endtime = MPI_Wtime();
 	if(rank==0)
+		/*if(limit>100000){
+			sum--;
+		}*/
 	 	printf("Deadly number of %llu is %llu (Elapsed time %.2f sec)\n",limit, sum, endtime-starttime);
 	 MPI_Finalize();
 	return 0;
