@@ -7,8 +7,11 @@ int main(int argc, char** argv){
 	unsigned long long limit;
 	unsigned long long count = 0;
 	unsigned long long sum = 0;
-	int rank,ntasks;
+	unsigned long long work = 0;
+	unsigned long long notfound = 0;
+	int rank,ntasks,index=0;
 	double starttime, endtime;
+
 	//Recv parametre
 	if(argc!=2) {
 	 //printf("%s <LIMIT>\n", argv[0]);
@@ -20,18 +23,22 @@ int main(int argc, char** argv){
 	MPI_Comm_rank(MPI_COMM_WORLD,&rank);
 	starttime = MPI_Wtime();
 	int i;
-	for (i = 2; i < limit; i+=ntasks){
+	for (i = 2; i <= limit; i+=ntasks){
 			int num = i;
 			int round = i;
 			for(int j=0;j<ntasks;j++){
 				if(rank==j){
+					//printf("%d of Rank: %d\n",num,rank );
+					work+=1;
 					if(round == num && rank==0){
 						//MPI_Send(&count,1,MPI_UNSIGNED_LONG_LONG,rank+1,101,MPI_COMM_WORLD);
 					}
 						//MPI_Recv(&count,1,MPI_UNSIGNED_LONG_LONG,ntasks-1,101,MPI_COMM_WORLD,MPI_STATUS_IGNORE);
 						if (semiprime(num)){
-							count+=1;
+							count++;
 							//printf("Rank:%d | Count: %llu | %d \n",rank,count,num);
+						}else{
+							notfound++;
 						}
 						//MPI_Send(&count,1,MPI_UNSIGNED_LONG_LONG,rank+1,101,MPI_COMM_WORLD);
 				}/*else if(rank<ntasks-1){
@@ -47,18 +54,17 @@ int main(int argc, char** argv){
 						}
 						//MPI_Send(&count,1,MPI_UNSIGNED_LONG_LONG,0,101,MPI_COMM_WORLD);
 				}*/
-				
 				num++;
 			}
 			MPI_Reduce(&count,&sum,1,MPI_UNSIGNED_LONG_LONG,MPI_SUM,0,MPI_COMM_WORLD);
 	}
 	putchar('\n');
 	endtime = MPI_Wtime();
-	if(rank==0)
-		/*if(limit>100000){
-			sum--;
-		}*/
-	 	printf("Deadly number of %llu is %llu (Elapsed time %.2f sec)\n",limit, sum, endtime-starttime);
+	work = work/(limit/100);
+	 	printf("Rank:%d | Work: %llu%% | Found: %llu | Not-found: %lld \n",rank,work,count,notfound);
+	if(rank==0){
+		printf("Deadly number of %llu is %llu (Elapsed time %.2f sec)\n",limit, sum, endtime-starttime);
+	}
 	 MPI_Finalize();
 	return 0;
 }
